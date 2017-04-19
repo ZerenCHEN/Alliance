@@ -1,0 +1,64 @@
+body,html {
+	margin:0;
+	padding:0;
+	overflow:hidden;
+    background-image: url('../img/menu1.png');
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.play{
+    position: absolute;
+    left: 24%;
+    top: 15%;
+    width:15%;
+    z-index: 0;
+}
+
+.play:hover{
+    background-image: url('../img/btnpasclick.png');
+    background-size: cover;
+
+ 
+}
+
+/*.play{
+    
+    position: absolute;
+    left: 24%;
+    top: 15%;
+    width:15%;
+    
+}*/
+
+
+.credit{
+    position: absolute;
+	left: 29%;
+    top: 58%;
+    z-index: 0;
+    width:10%;
+}
+
+.credit:hover{
+    background-image: url('../img/btncreditclick.png');
+    background-size: cover;
+    background-repeat: none;
+	width:11%;
+}
+
+.opt{
+    position: absolute;
+    left: 15%;
+    top: 58%;
+    z-index: 0;
+    width:10%;
+}
+
+.opt:hover{
+    background-image: url('../img/btnoptpasclick.png');
+    background-size: cover;
+    background-repeat: none;
+	width:11%;
+}

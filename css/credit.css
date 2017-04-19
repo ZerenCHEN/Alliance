@@ -1,0 +1,42 @@
+body{
+background-image: url('../img/menu1.png');
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.pagecred{
+	
+	position: absolute;
+	top: 5%;
+	left: 13%;
+	width: 50%;
+}
+
+.link{
+    position: absolute;
+    bottom:12%;
+    right: 40%;
+    font-family: 'Rams W01 Bold',Serif;
+    font-size:35px;
+    text-decoration: none;
+}
+
+.back{
+	position: absolute;
+	top: 5%;
+	left: 1%;
+	width: 9%;
+	z-index: 1;
+}
+
+
+.back:hover{
+	background-image: url('../img/retourclick.png');
+    background-size: cover;
+	position: absolute;
+	top: 5%;
+	left: 1%;
+	width: 8%;
+	z-index: 1;
+}
