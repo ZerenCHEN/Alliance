@@ -10,7 +10,7 @@ var game = new Phaser.Game(
 var gameState = {
 	preload: preload,
 	create: create,
-	update: update
+	update: update,
 };
 
 game.state.add('game', gameState);
@@ -143,7 +143,7 @@ function update() {
 
 //////////////////////////////////////////////
 // Fonction RENDER
-
+/*
 function render() {
 	game.debug.spriteCoords(joueur, 32, 500);
   	
@@ -161,7 +161,7 @@ function render() {
     })
 
 }
-
+*/
 
 function checkOverlap(spriteA, spriteB) {
     var boundsA = spriteA.getBounds();

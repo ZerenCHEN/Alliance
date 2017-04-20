@@ -163,8 +163,8 @@ var J2 = {
 	    joueur2.animations.add('down2',[17,18,19,20,21,22,23], 15, true);
 	    joueur2.animations.add('jump2',[154,155,156,157,158,159,160,161,162,163,164,165], 15, true);
 		
-		joueur2.animations.add('desequiliright',[73,74,75], 10, true);
-		joueur2.animations.add('desequilileft',[56,57,58], 10, true);
+		joueur2.animations.add('desequiliright',[72,73,74], 10, true);
+		joueur2.animations.add('desequilileft',[55,56,57], 10, true);
 
 		joueur2.animations.add('tomberright',[85,86,87,88,89,90,91,92,93,94], 20, true);
 		joueur2.animations.add('tomberleft',[102,103,104,105,106,107,108,109,110,111], 20, true);
