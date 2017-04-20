@@ -30,15 +30,15 @@ var map = {
 		invisiblecarre.body.immovable = true; //poubelle
 
 		invisiblecarre1 = platformsbas.create(1935, 1955, 'invisiblecarre');
-		invisiblecarre1.body.setSize(125,90);
+		invisiblecarre1.body.setSize(125,165);
 		invisiblecarre1.body.immovable = true; // escalier début niv
 
 		invisiblecarre2 = platformsbas.create(2060, 1885, 'invisiblecarre');
-		invisiblecarre2.body.setSize(125,90);
+		invisiblecarre2.body.setSize(125,240);
 		invisiblecarre2.body.immovable = true;
 
 		invisiblecarre3 = platformsbas.create(2184, 1800, 'invisiblecarre');
-		invisiblecarre3.body.setSize(140,90);
+		invisiblecarre3.body.setSize(140,320);
 		invisiblecarre3.body.immovable = true;
 
 		//platform ventilo 
@@ -96,7 +96,7 @@ var map = {
 			invisibleplat6.body.immovable = true;
 			
 			invisibleplat7 = platformsbas.create(8595, 1905, 'invisibleplat'); //platform chaise
-			invisibleplat7.body.setSize(125,20);
+			invisibleplat7.body.setSize(125,200);
 			invisibleplat7.body.immovable = true;
 
 			invisibleplat8 = platformsbas.create(8115, 2000, 'invisibleplat'); //platform coffre
@@ -104,7 +104,7 @@ var map = {
 			invisibleplat8.body.immovable = true;
 
 			invisibleplat9 = platformsbas.create(9775, 1905, 'invisibleplat'); //platform chaise
-			invisibleplat9.body.setSize(180,20);
+			invisibleplat9.body.setSize(180,200);
 			invisibleplat9.body.immovable = true;
 
 			invisibleplat10 = platformsbas.create(10005, 2117, 'invisibleplat'); //platform sol apr chaise
