@@ -28,7 +28,9 @@ var map= {
 		suivantmap.scale.setTo(1,5);
 		suivantmap.body.immovable = true;
 		
-		// Les carres invisibles pour les escaliers
+		invisibleplat = trou.create(0, 2500, 'invisibleplat'); 
+		invisibleplat.body.setSize(9448,2500);
+		invisibleplat.body.immovable = true;
 
 		invisiblecarre = platformsbas.create(19325-this.decale, 2000, 'invisiblecarre'); //escalier avant niv suiv 1er marche
 		invisiblecarre.body.setSize(140,90);

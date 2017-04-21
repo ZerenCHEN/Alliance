@@ -21,37 +21,14 @@ game.state.start('game');
 //////////////////////////////////////////////
 // VARIABLE DU JEU
 
-var bgsky;
 var bgsky1;
-var bgsky2;
 
 var platforms;
 var platformsbas;
-var ledge;
-var ground;
 
-var bout1;
-var bout2;
 var colision;
 var colision2;
 var glissade;
-var glissade2;
-
-// fesse overlap
-var fesse;
-var fesse2;
-var bras;
-var lumiere;
-// fesse anime
-var fessegauche;
-var fessedroite;
-
-
-var ventilo;
-var ventilo2;
-
-var vent;
-var vent2;
 
 //invisible colade
 var invisibleplat1;
@@ -66,13 +43,11 @@ var toucheD;
 var toucheS; 
 var toucheZ;
 
-
 // la mort et tomber
 var compteur = 0;
 
 var suivantmap;
 
-var feuille;
 var feuille1;
 var feuille2;
 var feuille3;
@@ -117,6 +92,8 @@ function create() {
     platformsbas = game.add.group();
     platformsbas.enableBody = true;
 
+    trou = game.add.group();
+    trou.enableBody = true;
 
    /* création Joueur 1, Joueur 2*/
 	
@@ -139,35 +116,15 @@ function create() {
 // Fonction UPDATE
 
 function update() {
+	game.physics.arcade.overlap(joueur2, platformsbas, collisionHandler, null, this);
+	game.physics.arcade.overlap(joueur2, trou, collisionHandler, null, this);
 
 	game.physics.arcade.collide(joueur, joueur2);
 	game.physics.arcade.collide(joueur, platforms);
 	game.physics.arcade.collide(joueur2, platforms);
 	game.physics.arcade.collide(joueur, platformsbas);
 	game.physics.arcade.collide(joueur2, platformsbas);
-/*	
-	J1.width = 20;
-	J1.height = 55;
-	J1.height_dep = 45;
-	J1.offset_y_dep = 10;
-	J1.offset_x = 11;
-	J1.velocity_y = 600;
-	
-	J1.width_transf = 20;
-	J1.height_transf = 35;
-	J1.offset_x_transf = 10;
-	J1.offset_y_transf = 20;
-
-	J2.width = 30;
-	J2.height = 55;
-	J2.height_dep = 45;
-	J2.offset_y_dep = 10;
-	J2.offset_x = 11;
-	J2.velocity_y = 600;
-	J2.width_transf = 30;
-	J2.height_transf = 35;
-	J2.offset_x_transf = 10;
-	J2.offset_y_transf = 20;
+	game.physics.arcade.collide(joueur2, trou);
 
 	/* Joueur */	
 	J1.deplacement();
@@ -177,7 +134,6 @@ function update() {
 	gravitation();
     suivantmaps();
     
-    //tomber();
 	perduMec();	
 	playsound();
 	tombeplui();

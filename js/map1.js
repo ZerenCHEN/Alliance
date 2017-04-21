@@ -10,7 +10,7 @@ var game = new Phaser.Game(
 var gameState = {
 	preload: preload,
 	create: create,
-	update: update,
+	update: update
 };
 
 game.state.add('game', gameState);
@@ -21,21 +21,15 @@ game.state.start('game');
 // VARIABLE DU JEU
 
 var bgsky;
-var bgsky1;
-var bgsky2;
 
 var platforms;
 var platformsbas;
 
-var colision;
-var colision2;
 var glissade;
 var glissade2;
 
-
 var ventilo;
 var ventilo2;
-
 var vent;
 var vent2;
 
@@ -52,13 +46,10 @@ var toucheD;
 var toucheS; 
 var toucheZ;
 
-
 // la mort et tomber
 var compteur = 0;
 
 var suivantmap;
-
-
 
 
 //////////////////////////////////////////////
@@ -75,9 +66,6 @@ function preload() {
 	
 	// son preload
 	soundPreload();
-
-
-
 }
 
 
@@ -99,6 +87,8 @@ function create() {
     platformsbas = game.add.group();
     platformsbas.enableBody = true;
 
+    trou = game.add.group();
+    trou.enableBody = true;
 
    /* création Joueur 1, Joueur 2*/
 	J1.sprite();
@@ -110,7 +100,6 @@ function create() {
     Keyboard();	
     game.camera.follow(joueur);
     soundCreate();	   
-   
 }
 
 
@@ -119,39 +108,41 @@ function create() {
 // Fonction UPDATE
 
 function update() {
+	game.physics.arcade.overlap(joueur2, platformsbas, collisionHandler, null, this);
+	game.physics.arcade.overlap(joueur2, trou, collisionHandler, null, this);
 
 	game.physics.arcade.collide(joueur, joueur2);
 	game.physics.arcade.collide(joueur, platforms);
 	game.physics.arcade.collide(joueur2, platforms);
 	game.physics.arcade.collide(joueur, platformsbas);
 	game.physics.arcade.collide(joueur2, platformsbas);
+	game.physics.arcade.collide(joueur2, trou);
 	
 	/* Joueur */
 	J1.deplacement();
 	J2.deplacement(); 	
 	
-
 	ventilateur();
-	//gravitation();
+
     suivantmaps();
-    
-    tomber();
-	perduMec();
+
 	playsound();
 	
+	perduMec();
 }
 
 //////////////////////////////////////////////
 // Fonction RENDER
-/*
+
 function render() {
 	game.debug.spriteCoords(joueur, 32, 500);
   	
     game.debug.body(joueur);
     game.debug.body(joueur2);
-  	
-  	//game.debug.body(colision);
-  	//game.debug.body(glissade2);
+    game.debug.body(vent);
+    game.debug.body(joueur2);
+  	game.debug.body(glissade2);
+  		
     platformsbas.forEach(function(platform) {
     	game.debug.body(platform)
     })
@@ -159,9 +150,8 @@ function render() {
     platforms.forEach(function(platform) {
     	game.debug.body(platform)
     })
-
 }
-*/
+
 
 function checkOverlap(spriteA, spriteB) {
     var boundsA = spriteA.getBounds();
@@ -175,26 +165,11 @@ function checkOverlap(spriteA, spriteB) {
 function ventilateur(){
 	if(checkOverlap(joueur, vent) || checkOverlap(joueur, vent2)){
 		console.log('...');
-		J1.velocity_y = 1600;
-		J2.velocity_y = 1600;
+		J1.velocity_base_y = 1100;
+		J2.velocity_base_y = 1100;
 	}else{
-		J1.velocity_y = 500;
-		J2.velocity_y = 500;
-	}	
-}
-
-function gravitation(){
-	if(checkOverlap(joueur, glissade) && joueur.x-glissade.x < 100){
-		joueur.body.gravity.x = 99999;
-		
-		if(checkOverlap(joueur, joueur2)){
-			J2.velocity_base_x = 800;
-			J2.velocity_x = 0;
-		}
-	}else{
-		joueur.body.gravity.x = 0;
-		J2.velocity_base_x = 0;
-		J2.velocity_x = 400;
+		J1.velocity_base_y = 0;
+		J2.velocity_base_y = 0;
 	}	
 }
 

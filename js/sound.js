@@ -5,25 +5,27 @@ var lancer = true;
 /// preload 
 function soundPreload(){
     game.load.audio('saut', 'sound/personnage/petitvoix.mp3')
-    game.load.audio('saut2', 'sound/personnage/desequilibre.mp3')
+    game.load.audio('desequilibre', 'sound/personnage/desequilibre.mp3')
     game.load.audio('bayo', 'sound/bayonetta.mp3')
+    game.load.audio('ohoh', 'sound/ohoh.mp3')
 }
 
 
 ///////////////////////////////////////////// 
 /// Les variables 
+var desequilibre;
 var saut;
-var saut2;
 var bayo;
-
+var ohoh;
 
 /////////////////////////////////////// 
 /// create
 function soundCreate(){
 	// tous les adds
-    saut2 = game.add.audio('saut',0.1,0);
-    saut = game.add.audio('saut2', 0.1, 0);
-    bayo = game.add.audio('bayo');
+    saut = game.add.audio('desequilibre',0.1,0);
+    desequilibre = game.add.audio('saut', 0.1,0);
+    bayo = game.add.audio('bayo', 1 , 10);
+    ohoh = game.add.audio('ohoh');
 }
 
 
@@ -54,12 +56,17 @@ function fond(){
         bayo.play();
         lancer = false;
     }  
+
+    if(mort == true && compteur == 0){
+        ohoh.play();
+        compteur ++;
+    }   
 }
 // joueur 1 sons
 function player1sound(){
 		// Saut
         if(fleches.up.isDown && joueur.body.touching.down) {
-           saut2.play();
+           saut.play();
         }
     
 }
@@ -78,7 +85,7 @@ function player2sound(){
             // Si absolument aucune touche n'est pressée, alors on reset les animations
             if (!toucheQ.isDown && !toucheD.isDown && !toucheZ.isDown && !toucheS.isDown) {
                 // en désequilibre
-                saut.play();
+                desequilibre.play();
             }   
     }
 
@@ -86,7 +93,7 @@ function player2sound(){
 	else{       
         // Saut
         if(toucheZ.isDown && joueur2.body.touching.down) {	              	
-            saut2.play();                      
+            saut.play();                      
         }
-    }   
+    }
 }

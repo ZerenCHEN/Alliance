@@ -12,13 +12,13 @@ var J1 = {
     //
     width : 45,
     height : 110,
-    width_transf :45, // ex: taille accroupi
+    width_transf :60, // ex: taille accroupi
     height_transf :62, // ex: taille accroupi
     height_dep : 90,
     //
     offset_x : 22, 
     offset_y : 0, 
-    offset_x_transf : 22, // décalage hitbox
+    offset_x_transf : 15, // décalage hitbox
     offset_y_transf : 48, // décalage hitbox
     offset_y_dep : 20, 
     //
@@ -52,7 +52,14 @@ var J1 = {
 		
         // velocité de base (changeable)
         joueur.body.velocity.x = this.velocity_base_x;
-     
+     	
+     	// si ils se overlap entre eux
+        if (game.physics.arcade.overlap(joueur, joueur2)) {
+        	joueur2.y = joueur.body.y - joueur2.height;
+        	if (game.physics.arcade.overlap(joueur, joueur2)) {
+            	joueur2.body.velocity.y = -3;
+            }
+        }
 		
 		// Déplacement bas + gauche et bas + droite
         if (fleches.left.isDown && fleches.down.isDown) {
@@ -69,7 +76,7 @@ var J1 = {
         	joueur.body.setSize(this.width_transf, this.height_transf, this.offset_x_transf, this.offset_y_transf);
             joueur.frame = this.frame_up;
             joueur.body.velocity.x = -this.velocity_x + this.velocity_base_x;
-            joueur.body.velocity.y = -this.velocity_y - 0;
+            joueur.body.velocity.y = -this.velocity_y - this.velocity_base_y;
         	
         		
             	jumpTimer = game.time.now + 2520;
@@ -78,7 +85,7 @@ var J1 = {
             joueur.body.setSize(this.width_transf, this.height_transf, this.offset_x_transf, this.offset_y_transf);
             joueur.frame = this.frame_up;
             joueur.body.velocity.x = this.velocity_x + this.velocity_base_x;
-           		joueur.body.velocity.y = -this.velocity_y - 0;
+           	joueur.body.velocity.y = -this.velocity_y - this.velocity_base_y;
            
         }else {
             // Déplacement gauche
@@ -97,7 +104,7 @@ var J1 = {
 			// Saut
             if(fleches.up.isDown && joueur.body.touching.down) {
                 joueur.body.setSize(this.width, this.height, this.offset_x, this.offset_y);
-                joueur.body.velocity.y = -this.velocity_y - 0;
+                joueur.body.velocity.y = -this.velocity_y - this.velocity_base_y;
                 joueur.frame = this.frame_up;
             }
             // Bas
@@ -111,13 +118,6 @@ var J1 = {
                 joueur.body.setSize(this.width, this.height, this.offset_x, this.offset_y);
                 joueur.frame = this.frame_0;
                 //joueur.animations.play('panic');
-                // si ils se overlap entre eux
-                if (game.physics.arcade.overlap(joueur, joueur2)) {
-        			joueur2.y = joueur.body.y - joueur2.height;
-        			if (game.physics.arcade.overlap(joueur, joueur2)) {
-            		joueur2.body.velocity.y = -3;
-            		}
-        		}
             }
         }
 	}
@@ -127,7 +127,7 @@ var J1 = {
 	/* Joueur 2 */	
 var J2 = {
 	x : 300,
-	y : 1600,
+	y : 1200,
 	//
 	width : 60,
 	height : 110,
@@ -186,7 +186,7 @@ var J2 = {
     	}
 
     	// QUAND IL EST TROP A DROITE
-    	if(joueur2.body.x - joueur.body.x > 60 && joueur2.body.x - joueur.body.x < 120){
+    	if(joueur2.body.x - joueur.body.x > 40 && joueur2.body.x - joueur.body.x < 100){
     		console.log("Aie je suis trop à DROITE");
     		
 	        // Déplacement bas + gauche et bas + droite
@@ -210,7 +210,7 @@ var J2 = {
 	            joueur2.body.setSize(this.width_transf, this.height_transf, this.offset_x_transf, this.offset_y_transf);
 	            joueur2.frame = this.frame_up;
 	            joueur2.body.velocity.x = this.velocity_x + this.velocity_base_x;
-	            joueur2.body.velocity.y = -this.velocity_y - this.velocity_base_y;
+	            joueur2.body.velocity.y = -this.velocity_y - this.velocity_base_yhis.velocity_base_y;
 	            jumpTimer = game.time.now + 3520;
 	        }else {
 	            // Déplacement gauche

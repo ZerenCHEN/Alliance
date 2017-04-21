@@ -9,6 +9,7 @@ var gameState = {
 	preload: preload,
 	create: create,
 	update: update,	
+	render : render
 };
 
 game.state.add('game', gameState);
@@ -37,7 +38,6 @@ var fessedroite;
 
 //invisible colade
 var invisibleplat1;
-var vent;
 
 /* variable joueurs + controles */
 var joueur;
@@ -90,6 +90,9 @@ function create() {
     platformsbas = game.add.group();
     platformsbas.enableBody = true;
 
+    trou = game.add.group();
+    trou.enableBody = true;
+
 
    /* création Joueur 1, Joueur 2*/
 	J1.sprite();
@@ -103,7 +106,6 @@ function create() {
     Keyboard();	
     game.camera.follow(joueur);
     soundCreate();	   
-   
 }
 
 
@@ -112,12 +114,15 @@ function create() {
 // Fonction UPDATE
 
 function update() {
+	game.physics.arcade.overlap(joueur2, platformsbas, collisionHandler, null, this);
+	game.physics.arcade.overlap(joueur2, trou, collisionHandler, null, this);
 
 	game.physics.arcade.collide(joueur, joueur2);
 	game.physics.arcade.collide(joueur, platforms);
 	game.physics.arcade.collide(joueur2, platforms);
 	game.physics.arcade.collide(joueur, platformsbas);
 	game.physics.arcade.collide(joueur2, platformsbas);
+	game.physics.arcade.collide(joueur2, trou);
 
 	/* Joueur */
 	J1.deplacement();
@@ -126,11 +131,9 @@ function update() {
     gravitation();
     rebondfesse();
     fini();
-    //tomber();
+
 	perduMec();
 	playsound();
-	
-	
 }
 
 //////////////////////////////////////////////
@@ -141,9 +144,7 @@ function render() {
   	
     game.debug.body(joueur);
     game.debug.body(joueur2);
-  	
-  	//game.debug.body(colision);
-  	//game.debug.body(glissade2);
+
     platformsbas.forEach(function(platform) {
     	game.debug.body(platform)
     })
@@ -154,7 +155,6 @@ function render() {
 
 }
 
-
 function checkOverlap(spriteA, spriteB) {
     var boundsA = spriteA.getBounds();
     var boundsB = spriteB.getBounds();
@@ -163,18 +163,6 @@ function checkOverlap(spriteA, spriteB) {
 
 
 // systeme gravitation du jeu
-
-function ventilateur(){
-	if(checkOverlap(joueur, vent) || checkOverlap(joueur, vent2)){
-		console.log('...');
-		J1.velocity_y = 1600;
-		J2.velocity_y = 1600;
-
-	}else{
-		J1.velocity_y = 500;
-		J2.velocity_y = 500;
-	}	
-}
 
 function gravitation(){
 	if(checkOverlap(joueur, glissade) || checkOverlap(joueur, glissade2)){

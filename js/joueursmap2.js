@@ -12,13 +12,13 @@ var J1 = {
     //
     width : 45,
     height : 110,
-    width_transf :45, // ex: taille accroupi
+    width_transf :60, // ex: taille accroupi
     height_transf :62, // ex: taille accroupi
     height_dep : 90,
     //
     offset_x : 22, 
     offset_y : 0, 
-    offset_x_transf : 22, // décalage hitbox
+    offset_x_transf : 15, // décalage hitbox
     offset_y_transf : 48, // décalage hitbox
     offset_y_dep : 20, 
     //
@@ -69,7 +69,7 @@ var J1 = {
         	joueur.body.setSize(this.width_transf, this.height_transf, this.offset_x_transf, this.offset_y_transf);
             joueur.frame = this.frame_up;
             joueur.body.velocity.x = -this.velocity_x + this.velocity_base_x;
-            joueur.body.velocity.y = -this.velocity_y - 0;
+            joueur.body.velocity.y = -this.velocity_y - this.velocity_base_y;
         	
         		
             	jumpTimer = game.time.now + 2520;
@@ -78,7 +78,7 @@ var J1 = {
             joueur.body.setSize(this.width_transf, this.height_transf, this.offset_x_transf, this.offset_y_transf);
             joueur.frame = this.frame_up;
             joueur.body.velocity.x = this.velocity_x + this.velocity_base_x;
-           		joueur.body.velocity.y = -this.velocity_y - 0;
+           		joueur.body.velocity.y = -this.velocity_y - this.velocity_base_y;
            
         }else {
             // Déplacement gauche
@@ -97,7 +97,7 @@ var J1 = {
 			// Saut
             if(fleches.up.isDown && joueur.body.touching.down) {
                 joueur.body.setSize(this.width, this.height, this.offset_x, this.offset_y);
-                joueur.body.velocity.y = -this.velocity_y - 0;
+                joueur.body.velocity.y = -this.velocity_y - this.velocity_base_y;
                 joueur.frame = this.frame_up;
             }
             // Bas
@@ -163,8 +163,8 @@ var J2 = {
 	    joueur2.animations.add('down2',[17,18,19,20,21,22,23], 15, true);
 	    joueur2.animations.add('jump2',[154,155,156,157,158,159,160,161,162,163,164,165], 15, true);
 		
-		joueur2.animations.add('desequiliright',[73,74,75], 10, true);
-		joueur2.animations.add('desequilileft',[56,57,58], 10, true);
+		joueur2.animations.add('desequiliright',[72,73,74], 10, true);
+		joueur2.animations.add('desequilileft',[55,56,57], 10, true);
 
 		joueur2.animations.add('tomberright',[85,86,87,88,89,90,91,92,93,94], 20, true);
 		joueur2.animations.add('tomberleft',[102,103,104,105,106,107,108,109,110,111], 20, true);
@@ -186,7 +186,7 @@ var J2 = {
     	}
 
     	// QUAND IL EST TROP A DROITE
-    	if(joueur2.body.x - joueur.body.x > 60 && joueur2.body.x - joueur.body.x < 120){
+    	if(joueur2.body.x - joueur.body.x > 40 && joueur2.body.x - joueur.body.x < 100){
     		console.log("Aie je suis trop à DROITE");
     		
 	        // Déplacement bas + gauche et bas + droite

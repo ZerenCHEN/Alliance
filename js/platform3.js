@@ -35,6 +35,10 @@ var map2 = {
 	},
 	create : function(){	
 		
+		invisibleplat = trou.create(0, 2500, 'invisibleplat');
+		invisibleplat.body.setSize(10053,1500);
+		invisibleplat.body.immovable = true;
+		
 		//salle1	
 			invisibleplat1 = platformsbas.create(-445+this.niveau_prec, this.hauteur+460, 'invisiblerectangle');
 			invisibleplat1.body.setSize(910,50);

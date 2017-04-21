@@ -23,6 +23,12 @@ body,html {
  
 }
 
+p{
+    color: white;
+    margin-left: 40px;
+    margin-top: 40px;
+    font-size: 25px;
+}
 /*.play{
     
     position: absolute;
