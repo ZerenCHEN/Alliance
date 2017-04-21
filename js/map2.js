@@ -11,7 +11,6 @@ var gameState = {
 	preload: preload,
 	create: create,
 	update: update
-	
 };
 
 game.state.add('game', gameState);

@@ -141,7 +141,6 @@ function render() {
     game.debug.body(joueur2);
     game.debug.body(vent);
     game.debug.body(joueur2);
-  	game.debug.body(glissade2);
   		
     platformsbas.forEach(function(platform) {
     	game.debug.body(platform)
@@ -164,7 +163,6 @@ function checkOverlap(spriteA, spriteB) {
 
 function ventilateur(){
 	if(checkOverlap(joueur, vent) || checkOverlap(joueur, vent2)){
-		console.log('...');
 		J1.velocity_base_y = 1100;
 		J2.velocity_base_y = 1100;
 	}else{

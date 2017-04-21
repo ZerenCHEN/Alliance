@@ -33,15 +33,15 @@ var map = {
 		invisibleplat.body.immovable = true; //poubelle
 
 		invisibleplat = platformsbas.create(1935, 1955, 'invisiblecarre');
-		invisibleplat.body.setSize(125,90);
+		invisibleplat.body.setSize(125,165);
 		invisibleplat.body.immovable = true; // escalier début niv
 
 		invisibleplat = platformsbas.create(2060, 1885, 'invisiblecarre');
-		invisibleplat.body.setSize(125,90);
+		invisibleplat.body.setSize(125,240);
 		invisibleplat.body.immovable = true;
 
 		invisibleplat = platformsbas.create(2184, 1800, 'invisiblecarre');
-		invisibleplat.body.setSize(140,90);
+		invisibleplat.body.setSize(140,320);
 		invisibleplat.body.immovable = true;
 
 		//platform ventilo 
@@ -103,7 +103,7 @@ var map = {
 			invisibleplat.body.immovable = true;
 			
 			invisibleplat = platformsbas.create(8595, 1905, 'invisibleplat'); //platform chaise
-			invisibleplat.body.setSize(125,20);
+			invisibleplat.body.setSize(125,200);
 			invisibleplat.body.immovable = true;
 
 			invisibleplat = platformsbas.create(8115, 2000, 'invisibleplat'); //platform coffre
@@ -111,19 +111,15 @@ var map = {
 			invisibleplat.body.immovable = true;
 
 			invisibleplat = platformsbas.create(9775, 1905, 'invisibleplat'); //platform chaise
-			invisibleplat.body.setSize(180,20);
+			invisibleplat.body.setSize(180,200);
 			invisibleplat.body.immovable = true;
 
 			invisibleplat = platforms.create(10005, 2117, 'invisibleplat'); //platform sol apr chaise
 			invisibleplat.body.setSize(1590,20);
 			invisibleplat.body.immovable = true;
 
-			invisibleplat = platformsbas.create(11595, 1800, 'invisibleplat'); //platform mur 
-			invisibleplat.body.setSize(100,200);
-			invisibleplat.body.immovable = true;
-
-			invisibleplat = platformsbas.create(11695, 1800, 'invisibleplat'); //platform mur 
-			invisibleplat.body.setSize(100,200);
+			invisibleplat = platforms.create(11565, 1000, 'invisibleplat'); //platform mur 
+			invisibleplat.body.setSize(250,1200);
 			invisibleplat.body.immovable = true;
 
 			ventilo2 = game.add.sprite(10800, 1520, 'ventilo'); //deuxieme ventilo
@@ -132,7 +128,7 @@ var map = {
             ventilo2.animations.play('actif');
 
             invisibleplat = platformsbas.create(11245, 880, 'invisibleplat'); //platform au dessus ventilo
-			invisibleplat.body.setSize(900,90);
+			invisibleplat.body.setSize(900,200);
 			invisibleplat.body.immovable = true;
 
 			invisibleplat = platformsbas.create(11800, 2117, 'invisibleplat'); //platform sol apr mur

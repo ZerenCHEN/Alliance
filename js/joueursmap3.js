@@ -12,13 +12,13 @@ var J1 = {
     //
     width : 45,
     height : 110,
-    width_transf :60, // ex: taille accroupi
+    width_transf :45, // ex: taille accroupi
     height_transf :62 , // ex: taille accroupi
     height_dep : 90,
     //
     offset_x : 22, 
     offset_y : 0, 
-    offset_x_transf : 15, // décalage hitbox
+    offset_x_transf : 22, // décalage hitbox
     offset_y_transf : 48, // décalage hitbox
     offset_y_dep : 20, 
     //

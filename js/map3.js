@@ -8,8 +8,7 @@ var game = new Phaser.Game(
 var gameState = {
 	preload: preload,
 	create: create,
-	update: update,	
-	render : render
+	update: update
 };
 
 game.state.add('game', gameState);
